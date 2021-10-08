@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Animated, StyleSheet, Text, View ,Image} from 'react-native';
 import { Svg } from 'react-native-svg';
-
 import Arc from './Shapes/Arc';
 import withAnimation from './withAnimation';
 

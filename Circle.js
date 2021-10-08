@@ -97,6 +97,7 @@ export class ProgressCircle extends Component {
       unfilledColor,
       endAngle,
       allowFontScaling,
+      badgeImage,
       ...restProps
     } = this.props;
 
@@ -125,15 +126,15 @@ export class ProgressCircle extends Component {
           style={
             indeterminate && rotation
               ? {
-                  transform: [
-                    {
-                      rotate: rotation.interpolate({
-                        inputRange: [0, 1],
-                        outputRange: ['0deg', '360deg'],
-                      }),
-                    },
-                  ],
-                }
+                transform: [
+                  {
+                    rotate: rotation.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: ['0deg', '360deg'],
+                    }),
+                  },
+                ],
+              }
               : undefined
           }
         >
@@ -192,19 +193,24 @@ export class ProgressCircle extends Component {
               justifyContent: 'center',
             }}
           >
-            <Text
-              style={[
-                {
-                  color,
-                  fontSize: textSize / 4.5,
-                  fontWeight: '300',
-                },
-                textStyle,
-              ]}
-              allowFontScaling={allowFontScaling}
-            >
-              {formatText(progressValue)}
-            </Text>
+            {badgeImage &&
+              <Image source={badgeImage} style={{ width: 100, height: 100 }} />
+            }
+            {!badgeImage &&
+              <Text
+                style={[
+                  {
+                    color,
+                    fontSize: textSize / 4.5,
+                    fontWeight: '300',
+                  },
+                  textStyle,
+                ]}
+                allowFontScaling={allowFontScaling}
+              >
+                {formatText(progressValue)}
+              </Text>
+            }
           </View>
         ) : (
           false

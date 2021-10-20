@@ -97,6 +97,7 @@ export class ProgressCircle extends Component {
       endAngle,
       allowFontScaling,
       badgeImage,
+      customImageStyle,
       ...restProps
     } = this.props;
 
@@ -193,7 +194,7 @@ export class ProgressCircle extends Component {
             }}
           >
             {badgeImage &&
-              <Image source={badgeImage} style={{ width: 100, height: 100 }} />
+              <Image source={badgeImage} style={customImageStyle} />
             }
             {!badgeImage &&
               <Text
